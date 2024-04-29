@@ -1,9 +1,3 @@
-const path = require('path');
-const fs   = require('fs');
+const jwt = require('jsonwebtoken');
 
-function (req, res) {
-  const targetDirectory = "/data/app/resources/";
-  const userFilename = path.join(targetDirectory, req.query.filename);
-
-  let data = fs.readFileSync(userFilename, { encoding: 'utf8', flag: 'r' }); // Noncompliant
-}
+jwt.sign(payload, key, { algorithm: 'none' }); // Noncompliant
